@@ -1,15 +1,69 @@
-Selenium Automation Framework (with Java)
+# Selenium Automation Framework
 
-Author - Kishore J
+## 📌 Overview
 
-Features
-Java, Selenium, TestNG
-Maven, AssertJ, POM
-Thread Local Support → Thread Safety
-Allure Report
-Excel Sheet for Test Data → Data Provider
-Read the username and password from Properties
-TestNG, @Test, Before and After Method
-Cloud Grids - Selenoid Docker integration
-SonarLint, Java > 8
-Run Local and on Selenoid Integration
+This is a Selenium-based automation framework built using Java, TestNG, and Maven following the Page Object Model (POM) design pattern.
+
+---
+
+## 🛠 Tech Stack
+
+* Java
+* Selenium WebDriver
+* TestNG
+* Maven
+* WebDriverManager
+
+---
+
+## 📂 Framework Structure
+
+* **base** → Test setup, teardown, and common page actions
+* **driver** → Browser initialization using DriverFactory
+* **pages** → Page Object classes with locators and actions
+* **tests** → Test cases with assertions
+* **utils** → Configuration handling
+
+---
+
+## 🚀 Features
+
+* Page Object Model design pattern
+* Multi-browser support (Chrome, Edge, Firefox)
+* WebDriverManager for automatic driver management
+* Config-driven execution
+* Explicit waits for stability
+* Positive and negative test scenarios
+
+---
+
+## ▶️ How to Run Tests
+
+```bash
+mvn clean test
+```
+
+---
+
+## 📊 Test Coverage
+
+* Valid login scenario
+* Invalid login scenario
+* Invalid username validation
+* Invalid password validation
+
+---
+
+## 🧠 Design Approach
+
+* Separation of concerns using layered architecture
+* Reusable page methods for maintainability
+* Clean test design with clear assertions
+
+---
+
+## 🔧 Future Enhancements
+
+* Screenshot capture on failure
+* Logging integration
+* CI/CD integration
