@@ -2,27 +2,39 @@ package com.kishore.tests;
 
 import com.kishore.base.BaseTest;
 import com.kishore.pages.LoginPage;
+import com.kishore.utils.ConfigReader;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
+
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
+    LoginPage loginPage = new LoginPage(driver);
 
     @Test
     public void testValidLogin(){
 
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("cxh04@tempumail.cc", "ILoveDrive#08");
+        loginPage.login(ConfigReader.get("validUser"), ConfigReader.get("validpassword"));
         Assert.assertTrue(loginPage.isLoginSuccessful());
     }
 
     @Test
     public void testInvalidLogin() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("wrong@test.com", "wrongpass");
+
+        loginPage.login(ConfigReader.get("inValidUser"), ConfigReader.get("inValidpassword"));
         Assert.assertTrue(loginPage.isLoginFailed());
     }
 
+    @Test
+    public void invalidUsernameTest() {
+        loginPage.login(ConfigReader.get("invalidUser"), ConfigReader.get("validPassword"));
+        Assert.assertTrue(loginPage.isLoginFailed());
+    }
+
+    @Test
+    public void invalidPasswordTest() {
+        loginPage.login(ConfigReader.get("validUser"), ConfigReader.get("invalidPassword"));
+        Assert.assertTrue(loginPage.isLoginFailed());
+    }
 
 //    @Test(dataProvider = "loginData")
 //    public void testLogin(String username, String password, boolean isValid) {
