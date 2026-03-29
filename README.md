@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-This is a Selenium-based automation framework built using Java, TestNG, and Maven following the Page Object Model (POM) design pattern.
+This project is a Selenium-based automation framework built using Java, TestNG, and Maven, following the Page Object Model (POM) design pattern. The framework is designed for scalability, readability, and maintainability.
 
 ---
 
@@ -18,22 +18,23 @@ This is a Selenium-based automation framework built using Java, TestNG, and Mave
 
 ## 📂 Framework Structure
 
-* **base** → Test setup, teardown, and common page actions
+* **base** → Test setup, teardown, and reusable page methods
 * **driver** → Browser initialization using DriverFactory
-* **pages** → Page Object classes with locators and actions
+* **pages** → Page Object classes (locators + actions)
 * **tests** → Test cases with assertions
-* **utils** → Configuration handling
+* **utils** → Configuration and utility classes
 
 ---
 
 ## 🚀 Features
 
-* Page Object Model design pattern
+* Page Object Model (POM) design pattern
 * Multi-browser support (Chrome, Edge, Firefox)
-* WebDriverManager for automatic driver management
-* Config-driven execution
-* Explicit waits for stability
-* Positive and negative test scenarios
+* WebDriverManager for automatic driver handling
+* Config-driven execution using properties file
+* Explicit waits for stable element handling
+* Automated screenshot capture on test failure
+* Clear separation of test logic and page actions
 
 ---
 
@@ -54,16 +55,27 @@ mvn clean test
 
 ---
 
+## 📸 Screenshot Handling
+
+* Screenshots are automatically captured on test failure
+* Stored in `/screenshots` folder
+* Helps in debugging and failure analysis
+
+---
+
 ## 🧠 Design Approach
 
-* Separation of concerns using layered architecture
-* Reusable page methods for maintainability
-* Clean test design with clear assertions
+* Layered architecture for separation of concerns
+* Reusable methods implemented in BasePage
+* Centralized driver management using DriverFactory
+* Configuration externalized using properties file
 
 ---
 
 ## 🔧 Future Enhancements
 
-* Screenshot capture on failure
-* Logging integration
+* Logging (Log4j) integration
+* Reporting (Extent/Allure)
+* Parallel execution
 * CI/CD integration
+
