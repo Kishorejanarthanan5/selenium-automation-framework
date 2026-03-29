@@ -8,30 +8,31 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
-    LoginPage loginPage = new LoginPage(driver);
 
     @Test
     public void testValidLogin(){
-
-        loginPage.login(ConfigReader.get("validUser"), ConfigReader.get("validpassword"));
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login(ConfigReader.get("validUser"), ConfigReader.get("validPassword"));
         Assert.assertTrue(loginPage.isLoginSuccessful());
     }
 
     @Test
     public void testInvalidLogin() {
-
-        loginPage.login(ConfigReader.get("inValidUser"), ConfigReader.get("inValidpassword"));
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login(ConfigReader.get("invalidUser"), ConfigReader.get("invalidPassword"));
         Assert.assertTrue(loginPage.isLoginFailed());
     }
 
     @Test
     public void invalidUsernameTest() {
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.login(ConfigReader.get("invalidUser"), ConfigReader.get("validPassword"));
         Assert.assertTrue(loginPage.isLoginFailed());
     }
 
     @Test
     public void invalidPasswordTest() {
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.login(ConfigReader.get("validUser"), ConfigReader.get("invalidPassword"));
         Assert.assertTrue(loginPage.isLoginFailed());
     }

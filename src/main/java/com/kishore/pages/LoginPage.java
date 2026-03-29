@@ -1,7 +1,6 @@
 package com.kishore.pages;
 
 import com.kishore.base.BasePage;
-import com.kishore.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,16 +15,13 @@ public class LoginPage extends BasePage {
     private By loginBtn = By.id("js-login-btn");
 
     public boolean isLoginFailed() {
-        WaitUtils.waitForUrlContains(driver, "login");
-        return WaitUtils.waitForVisibility(driver, username).isDisplayed();
+        return isElementDisplayed(username);
     }
 
     private By dashboardHeader = By.cssSelector(".page-heading");
     public boolean isLoginSuccessful() {
-        WaitUtils.waitForUrlContains(driver, "dashboard");
-        return WaitUtils.waitForVisibility(driver, dashboardHeader).isDisplayed();
+        return isElementDisplayed(dashboardHeader);
     }
-
 
     public void login(String user, String pass) {
         type(username, user);
