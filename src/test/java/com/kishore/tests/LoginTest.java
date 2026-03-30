@@ -20,7 +20,7 @@ public class LoginTest extends BaseTest {
     public void testInvalidLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(ConfigReader.get("invalidUser"), ConfigReader.get("invalidPassword"));
-        Assert.assertTrue(loginPage.isLoginFailed());
+        Assert.assertTrue(false);
     }
 
     @Test
